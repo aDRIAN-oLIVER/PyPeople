@@ -11,7 +11,7 @@ class Member:
         self.surname1 = surname1
         self.surname2 = surname2
 
-        # Dates require a specific format
+        # Dates require a specific format. If not provided, inicialized as None
         allowed_format = "%d-%m-%Y"
 
         try:
@@ -28,7 +28,8 @@ class Member:
             
 
     def get_company_seniority(self):
-        """Returns the seniority in company in months"""
+        """Returns the seniority in company in months.
+        In case the member doesn't have company_init_date, it returns '?'"""
         if self.company_init_date is None:
             print("error: company_init_date is not registered in this member.")
             return "?" 
@@ -39,7 +40,8 @@ class Member:
         return seniority_in_months
 
     def get_team_seniority(self):
-        """Returns the seniority in the team in months""" 
+        """Returns the seniority in the team in months.
+        In case the member doesn't have team_init_date, it returns '?'"""
         if self.team_init_date is None:
             print("error: team_init_date is not registered in this member.")
             return "?"
